@@ -10,15 +10,15 @@ import pickle
 import _pickle as cPickle
 app = Flask(__name__)
     
-def decompress_pickle(file):
- data = bz2.BZ2File(file, 'rb')
- data = cPickle.load(data)
- return data
+#def decompress_pickle(file):
+# data = bz2.BZ2File(file, 'rb')
+# data = cPickle.load(data)
+# return data
 
 
-data = decompress_pickle('model_pickle_com_com.pbz2') 
-model = decompress_pickle(data) 
-#model = pickle.load(open('random_forest_regression_model_final.pkl', 'rb'))
+#data = decompress_pickle('model_pickle_com_com.pbz2') 
+#model = decompress_pickle(data) 
+model = pickle.load(open('random_forest_regression_model_final.pkl', 'rb'))
 @app.route('/',methods=['GET'])
 def Home():
     return render_template('index.html')
