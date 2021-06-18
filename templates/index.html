@@ -4,25 +4,24 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Car Prediction</title>
-        
-        
-
+        <title>PA</title>
+        <script src="https://app.simplefileupload.com/buckets/[your API key here].js"></script>
+        <link rel="stylesheet" type="text/css" href="./style2.css">
     </head>
-<style>
-    *{
+    <style>
+        *{
     padding:0;
     margin: 0;
 }
 body,html{
-    width: 99.7%;
-    height: 99vh;
+    width: 99.99%;
+    height: 100vh;
     border: black;
 }
 .box{
     display: flex;
     flex-direction:row;
-    background-image: url(./car.PNG);
+    background-image: url(./car.jpg);
     position: relative;
     background-size: cover;
     background-position: center;
@@ -31,21 +30,31 @@ body,html{
     width: 1000px;
     height: 98vh;
     border: black;
-    text-align: left;
+    text-align: center;
 }
-
+.circle{
+    width: 40px;
+    height: 40px;
+    border: 2px  blue;
+    border-radius: 50%;
+    background-image: url(./carsale1.jpg);
+    background-size: cover;
+    background-position: center;
+    margin-top: 120px;
+    margin-bottom: -40px;
+    margin-left: 250px;
+}
 .heading{
     color: darkblue;
     font-size: 25px;
-    margin: top 20px;
-    margin-left: 20px;
+    margin-top:0px;
+    margin-left: 0px;
     font-variant: normal;
 }
 .box-2{
-    
     width: 550px;
     border: blue;
-    height: 96vh;
+    height: 95vh;
     padding: 10px;
 }
 .regform{
@@ -128,7 +137,7 @@ form{
 .option2:hover{
     border: rgb(41, 194, 233) solid;
 }
-.button{
+button{
     background-color:rgba(30, 166, 230);
     display:block;
     margin:-20px 0px 0px 60px;
@@ -142,20 +151,26 @@ form{
     cursor:pointer;
     transition:0.25px;
     }
-    .button:hover{
+    button:hover{
         border: 3px solid rgba(24, 24, 211);
         }
 h3{
     margin-top: 10px;
 }
-
-</style>
+.result{
+    text-align: center;
+    color: rgb(49, 15, 5);
+    font-size: large;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+    </style>
     <body>
         <div class="box">
         <div class="box-1">
             <div class="circle"></div>
             <div class="heading">
-           <h2>Know Your Car Price</h2>
+           <h2>Valueation of your Car</h2>
         </div>
         </div>
         <div class="box-2">
@@ -202,8 +217,9 @@ h3{
                 <option value="Automatic">Automatic Car</option>
             </select><br>
             
-            <br><br>
-            <a href="index1.html" class="button"><h3>Calculate the Selling Price</h3></a>
+            <br><button id="sub" type="submit ">Calculate the Selling Price</button>
+
+            <span class="result"><h3>{{ prediction_text }}<h3> </span>
         </div>
       </form>
         </div>
