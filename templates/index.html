@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Car Resale Value Prediction</title>
+        <title>Used Card Price Prediction</title>
         
     </head>
     <style>
@@ -13,17 +13,21 @@
     margin: 0;
 }
 body,html{
+	background-image: url("../static/car.jpg");
+	flex-direction:row;
+    position: relative;
+    background-size: cover;
+    background-position: center;
     width: 99.99%;
     height: 100vh;
     border: black;
 }
+
 .box{
     display: flex;
     flex-direction:row;
-    background-image: url("../static/car.png");
     position: relative;
-    background-size: cover;
-    background-position: center;
+    
 }
 .box-1{
     width: 1000px;
@@ -45,17 +49,20 @@ body,html{
     border: blue;
     height: 95vh;
     padding: 10px;
+    margin-right: 30px;
 }
+
 .regform{
     width: 550px;
     height: 40px;
-    background-color:rgba(32, 133, 163, 0.8);
+    background-color:#450005;
     margin:auto;
     color:#FFFFFF;
     padding:10px 0px 10px 0px;
     text-align:center;
     border-radius:15px 15px 0px 0px;
 }
+
 .main{
     background-color:rgba(220, 231, 226, 0.7);
     width:550px;
@@ -67,10 +74,16 @@ form{
     padding: 10px;
     margin-left: 50px;
     }
-/*#name{
-        width:100%;
-        height:650px;
-        }*/
+/*#a:hover,#b:hover,#c:hover,#d:hover,#e:hover,#f:hover{
+	background-color: black;
+}*/
+option:hover {
+      background-color: yellow;
+    }
+#name{
+        text-align: center;
+        width: 85%;
+        }
 
 .yearlabel,.pricelabel,.distancelabel,.ownerlabel,.fuellabel,.sellerlabel,.translabel{
             margin-left:15px;
@@ -88,19 +101,23 @@ form{
             margin-bottom: 20px;
             padding:5px 50px;
             font-size:14px;
-            border-radius: 15px;
+            border-radius:5px;
+            border: solid 2px;           
+            text-align: center;
+            font-size: 15px;
+            margin-left: 10px;
         }
 .yearname:hover{
-    border: rgb(41, 194, 233) solid;
+	background-color: #F2D7D5;
 }
 .pricename:hover{
-    border: rgb(41, 194, 233) solid;
+    background-color: #F2D7D5;
 }
 .kmsname:hover{
-    border: rgb(41, 194, 233) solid;
+    background-color: #F2D7D5;
 }
 .ownername:hover{
-    border: rgb(41, 194, 233) solid;
+    background-color: #F2D7D5;
 }   
 
 .option,.option1,.option2{
@@ -111,44 +128,38 @@ form{
     margin-left:2px;
     line-height:40px;
     width:180px;
-    border-radius:15px;
     padding: 5px 22px;
-    font-size:14px;
-    color:rgb(47, 136, 151);
+    font-size: 15px;
+    color:black;
     border: solid black 1px;
+    margin-right: 8px;
+    outline: none;
     }
-.option:hover{
-    border: rgb(41, 194, 233) solid;
-}
-.option1:hover{
-    border: rgb(41, 194, 233) solid;
-}
-.option2:hover{
-    border: rgb(41, 194, 233) solid;
-}
+    
 button{
-    background-color:rgba(30, 166, 230);
+    background-color:#450005;
     display:block;
     margin:-20px 0px 0px 60px;
     text-align:center;
+    font-size: large;
     border-radius:12px;
-    border:2px solid #1285ac;
+    border:2px solid #450005;
     width: 300px;
     height: 50px;
     outline:none;
-    color:rgb(36, 8, 80);
+    color:#FFFFFF;
     cursor:pointer;
     transition:0.25px;
     }
     button:hover{
-        border: 3px solid rgba(24, 24, 211);
+    	background-color: #840B14;       
         }
 h3{
     margin-top: 10px;
 }
 .result{
     text-align: center;
-    color: rgb(49, 15, 5);
+    color: #450005;
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
     
@@ -169,44 +180,44 @@ h3{
           <div id="name">           
 
             
-            <label class="yearlabel">Enter Year</label><br>
-            <input  class="yearname" id="first" name="Year" type="number" required="required"><br>
+            <label class="yearlabel">Showroom Purchase Year</label><br>
+            <input  class="yearname" id="first" name="Year" onkeypress="return onlyNumberKey(event)" maxlength="4" required="required"><br>
             
     
-            <label class="pricelabel">Enter Showroom Price(In Lakhs)</label><br>
-            <input class="pricename" id="second" name="Present_Price" required="required"><br>
+            <label class="pricelabel">Showroom Price(In Lakhs)</label><br>
+            <input class="pricename" id="second" maxlength="4" onkeypress="return onlyNumberKey(event)" name="Present_Price" required="required"><br>
            
             
-            <label class="distancelabel">Enter Kilometers Drived</label><br>
-            <input class="kmsname" id="third" name="Kms_Driven" required="required"><br>
+            <label class="distancelabel">Kilometers Drived</label><br>
+            <input class="kmsname" id="third" name="Kms_Driven" onkeypress="return onlyNumberKey(event)" maxlength="7" required="required"><br>
            
-            <label class="ownerlabel">Enter Number Of Owners(0 or 1 or 2)</label><br>
-            <input class="ownername" id="fourth" name="Owner"  required="required"><br>
+            <label class="ownerlabel">Number Of Owners(0/1/2)</label><br>
+            <input class="ownername" id="fourth" name="Owner" onkeypress="return onlyNumberKey(event)" maxlength="1"  required="required"><br>
            
            
-            <label class="fuellabel">Select Fuel Type</label><br>
-            <select class="option" name="Fuel_Type_Petrol" id="fuel" required="required">
-            <option disabled="disabled" selected="selected">--Choose Option--</option>
-                <option value="Petrol">Petrol</option>
-                <option value="Diesel">Diesel</option>
+            <label class="fuellabel">Fuel Type</label><br>
+            <select class="option" name="Fuel_Type_Petrol" id="fuel" required="required" >
+            <option disabled="disabled" selected="selected">-- select --</option>
+                <option class="a" value="Petrol">Petrol</option>
+                <option class="a" value="Diesel">Diesel</option>
             </select><br>
             
             
-            <label class="sellerlabel">Select Seller Type</label><br>
-            <select class="option1" name="Seller_Type_Individual" id="resea" required="required">
-                <option disabled="disabled" selected="selected">--Choose Option--</option>
-                <option value="Dealer">Dealer</option>
-                <option value="Individual">Individual</option>
+            <label class="sellerlabel">Seller Type</label><br>
+            <select class="option1" name="Seller_Type_Individual" id="resea" required="required" >
+                <option disabled="disabled" selected="selected">-- select --</option>
+                <option class="a" value="Dealer">Dealer</option>
+                <option class="a" value="Individual">Individual</option>
             </select><br>
             
-           <label class="translabel">Select Transmission Type</label><br>
-            <select class="option2" name="Transmission_Mannual" id="research" required="required">
-            <option disabled="disabled" selected="selected">--Choose Option--</option>
-                <option value="Mannual">Manual Car</option>
-                <option value="Automatic">Automatic Car</option>
+           <label class="translabel">Transmission Type</label><br>
+            <select class="option2" name="Transmission_Mannual" id="research" required="required" >
+            <option disabled="disabled" selected="selected">-- select --</option>
+                <option class="a" value="Mannual">Manual</option>
+                <option class="a" value="Automatic">Automatic</option>
             </select><br>
             
-            <br><button id="sub" type="submit ">Calculate the Selling Price</button>
+            <br><button id="sub" type="submit ">Predict the Selling Price</button>
 
             <span class="result"><h3>{{ prediction_text }}<h3> </span>
         </div>
@@ -214,4 +225,14 @@ h3{
         </div>
         </div>
     </body>
+    <script>
+    function onlyNumberKey(evt) {
+         
+        // Only ASCII character in that range allowed
+        var ASCIICode = (evt.which) ? evt.which : evt.keyCode
+        if (ASCIICode > 31 && (ASCIICode < 48 || ASCIICode > 57))
+            return false;
+        return true;
+    }
+</script>
 </html>
