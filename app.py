@@ -18,7 +18,7 @@ app = Flask(__name__)
 
 #data = decompress_pickle('model_pickle_com_com.pbz2') 
 #model = decompress_pickle(data) 
-model = pickle.load(open('random_forest_regression_model_final.pkl', 'rb'))
+model = pickle.load(open("rf_model.pkl", 'rb'))
 @app.route('/',methods=['GET'])
 def Home():
     return render_template('index.html')
